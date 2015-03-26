@@ -1,4 +1,5 @@
-var React = require('react/addons');
+var React 			= require('react/addons');
+var SubTaskList 	= require('./subTaskList');
 
 var TaskList = React.createClass({
 	getInitialState: function(){
@@ -11,7 +12,12 @@ var TaskList = React.createClass({
 		return (
 			<ol>
 				{ this.state.taskList.map(function(task){
-					return <li>{task.desc}</li>
+					return (
+						<li key={task.key}>
+							{task.desc}
+							<SubTaskList subtasks={task.subTasks} />
+						</li>
+					)
 				})}
 			</ol>
 			);
@@ -21,8 +27,11 @@ var TaskList = React.createClass({
 module.exports = TaskList;
 
 var tasks = [
-			{ key:1, desc:"Have breakfast"},
-			{ key:2, desc:"Say goodbye"},
-			{ key:3, desc:"Drive to work" },
-			{ key:4, desc:"Lunch break" }
-			];
+	{ key:1, desc:"Have breakfast", subTasks: [ 
+		{ key: 1, desc: 'dring orange juice' },
+		{ key: 2, desc: 'eat porridge' } ] 
+	},
+	{ key:2, desc:"Say goodbye",  subTasks: []	},
+	{ key:3, desc:"Drive to work", subTasks: [] },
+	{ key:4, desc:"Lunch break", subTasks: [] }
+];
