@@ -3,14 +3,15 @@ TaskList 			= require('./taskList');
 
 var TaskApp = React.createClass({
 	getInitialState: function() {
-		return { tasks: [] }
+		return { tasks: [], placeholder: 'Add a new task!' }
 	},
 	componentDidMount: function() {
 		this.setState({tasks: taskHardcodedData})
 	},
 	itemDeleted: function(task) {
-		console.log('itemDeleted');
-		console.log(task);
+		var toDeleteIndex = this.state.tasks.indexOf(task);
+		this.state.tasks.splice(toDeleteIndex,1);
+		this.setState({tasks: this.state.tasks});
 	},
 	handleKeyPress: function(e) {
 		if( e === undefined ) return;
@@ -21,12 +22,12 @@ var TaskApp = React.createClass({
 			desc: this.refs.newTask.getDOMNode().value, 
 			subTasks: []
 		});
-		this.setState({tasks: nextTasks});
+		this.setState({tasks: nextTasks, placeholder: 'Add a new task!'});
 	},
 	render: function() {
 		return (
 			<div className="content">
-				<input type="text" name="newTask" ref="newTask" placeholder="Add a new task!" onKeyPress={this.handleKeyPress} ></input>
+				<input type="text" name="newTask" ref="newTask" placeholder={this.state.placeHolder} onKeyPress={this.handleKeyPress} ></input>
 				<TaskList tasks={this.state.tasks} itemDeleted={this.itemDeleted} />
 			</div>
 		)
