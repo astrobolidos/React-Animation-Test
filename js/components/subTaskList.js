@@ -2,7 +2,7 @@ var React = require('react/addons');
 
 var SubTaskList = React.createClass({
 	getInitialState: function() {
-		return {subTasks: [] }
+		return { subTasks: [], placeHolder: 'Enter a subtask!' }
 	},
 	componentDidMount: function() {
 		this.setState({subTasks: this.props.subTasks});
@@ -23,8 +23,7 @@ var SubTaskList = React.createClass({
 			key: this.state.subTasks.length, 
 			desc: this.refs.subTask.getDOMNode().value
 		});
-		this.setState({subTasks: nextSubTasks});
-		this.refs.subTask.getDOMNode().placeholder = 'add more!';
+		this.setState({subTasks: nextSubTasks, placeHolder: 'add more!'});
 	},	
 	onClick: function(e) {
 		e.stopPropagation();
