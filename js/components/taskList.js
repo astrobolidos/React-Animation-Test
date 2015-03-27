@@ -1,5 +1,6 @@
 var React 			= require('react/addons');
 var SubTaskList 	= require('./subTaskList');
+var ReactTransitionGroup 	= React.addons.CSSTransitionGroup;
 
 var TaskList = React.createClass({
   render: function() {
@@ -14,7 +15,9 @@ var TaskList = React.createClass({
     };
     return (
     	<ul>
-    		{this.props.tasks.map(createTask)}
+    		<ReactTransitionGroup transitionName="example" transitionAppear={true}>
+    			{this.props.tasks.map(createTask)}
+    		</ReactTransitionGroup>
     	</ul>
     	)
   }

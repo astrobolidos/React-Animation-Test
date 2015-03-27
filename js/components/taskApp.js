@@ -1,6 +1,5 @@
 var React 						= require('react/addons');
 var TaskList 					= require('./taskList');
-var ReactTransitionGroup 	= React.addons.CSSTransitionGroup;
 
 var TaskApp = React.createClass({
 	getInitialState: function() {
@@ -29,7 +28,9 @@ var TaskApp = React.createClass({
 		return (
 			<div className="content">
 				<input type="text" name="newTask" ref="newTask" placeholder={this.state.placeHolder} onKeyPress={this.handleKeyPress} ></input>
-				<TaskList tasks={this.state.tasks} itemDeleted={this.itemDeleted} />
+
+					<TaskList tasks={this.state.tasks} itemDeleted={this.itemDeleted} />
+
 			</div>
 		)
 	}
