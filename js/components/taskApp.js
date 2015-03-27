@@ -8,8 +8,9 @@ var TaskApp = React.createClass({
 	componentDidMount: function() {
 		this.setState({tasks: taskHardcodedData})
 	},
-	itemDeleted: function(item) {
+	itemDeleted: function(task) {
 		console.log('itemDeleted');
+		console.log(task);
 	},
 	handleKeyPress: function(e) {
 		if( e === undefined ) return;
@@ -26,7 +27,7 @@ var TaskApp = React.createClass({
 		return (
 			<div className="content">
 				<input type="text" name="newTask" ref="newTask" placeholder="Add a new task!" onKeyPress={this.handleKeyPress} ></input>
-				<TaskList tasks={this.state.tasks} onItemDeteled={this.itemDeleted} />
+				<TaskList tasks={this.state.tasks} itemDeleted={this.itemDeleted} />
 			</div>
 		)
 	}
