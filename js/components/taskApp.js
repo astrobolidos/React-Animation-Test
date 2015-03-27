@@ -1,5 +1,6 @@
-React 				= require('react/addons');
-TaskList 			= require('./taskList');
+var React 						= require('react/addons');
+var TaskList 					= require('./taskList');
+var ReactTransitionGroup 	= React.addons.CSSTransitionGroup;
 
 var TaskApp = React.createClass({
 	getInitialState: function() {
