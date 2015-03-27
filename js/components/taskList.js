@@ -15,7 +15,7 @@ var TaskList = React.createClass({
     };
     return (
     	<ul>
-    		<ReactTransitionGroup transitionName="example" transitionAppear={true}>
+    		<ReactTransitionGroup transitionName="example">
     			{this.props.tasks.map(createTask)}
     		</ReactTransitionGroup>
     	</ul>
