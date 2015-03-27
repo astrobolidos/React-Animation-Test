@@ -4,6 +4,10 @@
 	width: 600px;
 }
 
+.content ul {
+	list-style: none;
+}
+
 .example-enter {
   opacity: 0.01;
   transition: opacity .5s ease-in;

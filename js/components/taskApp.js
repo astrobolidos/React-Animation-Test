@@ -3,7 +3,7 @@ var TaskList 					= require('./taskList');
 
 var TaskApp = React.createClass({
 	getInitialState: function() {
-		return { tasks: [], placeholder: 'Add a new task!' }
+		return { tasks: [] }
 	},
 	componentDidMount: function() {
 		this.setState({tasks: taskHardcodedData})
@@ -22,12 +22,14 @@ var TaskApp = React.createClass({
 			desc: this.refs.newTask.getDOMNode().value, 
 			subTasks: []
 		});
-		this.setState({tasks: nextTasks, placeholder: 'Add a new task!'});
+		this.setState({tasks: nextTasks });
+		this.refs.newTask.getDOMNode().value = '';
 	},
 	render: function() {
 		return (
 			<div className="content">
-				<input type="text" name="newTask" ref="newTask" placeholder={this.state.placeHolder} onKeyPress={this.handleKeyPress} ></input>
+				<h1>Task & sub tasks app</h1>
+				<input type="text" name="newTask" ref="newTask" placeholder="Enter a task!" onKeyPress={this.handleKeyPress} ></input>
 
 				<TaskList tasks={this.state.tasks} itemDeleted={this.itemDeleted} />
 			</div>
