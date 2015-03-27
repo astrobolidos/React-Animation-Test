@@ -29,8 +29,7 @@ var TaskApp = React.createClass({
 			<div className="content">
 				<input type="text" name="newTask" ref="newTask" placeholder={this.state.placeHolder} onKeyPress={this.handleKeyPress} ></input>
 
-					<TaskList tasks={this.state.tasks} itemDeleted={this.itemDeleted} />
-
+				<TaskList tasks={this.state.tasks} itemDeleted={this.itemDeleted} />
 			</div>
 		)
 	}
