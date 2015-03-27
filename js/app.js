@@ -1,11 +1,5 @@
 window.React 	= require('react/addons');
-React 				= require('react/addons');
-TaskList 			= require('./components/taskList');
+React 			= require('react/addons');
+TaskApp			= require('./components/taskApp');
 
-var App = React.createClass({
-	render: function() {
-		return <TaskList />
-	}
-});
-
-React.render(<App/>, document.body);
+React.render(<TaskApp/>, document.body);
