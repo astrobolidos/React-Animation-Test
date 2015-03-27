@@ -1,3 +1,4 @@
+var assert = require("assert");
 describe('TaskApp', function() {
   it('Loads all elements on render', function() {
     var React = require('react/addons');
@@ -8,5 +9,9 @@ describe('TaskApp', function() {
     var taskApp = TestUtils.renderIntoDocument(
       <TaskApp />
     );
+
+    assert.equal(true, 1 == 1);
+        assert.equal(true, 2 == 2); 
+
   });
 });

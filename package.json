@@ -6,7 +6,7 @@
   "scripts": {
     "start": "watchify -o js/bundle.js -v -d .",
     "test": "karma start karma.conf.js",
-    "test:watch": "karma start karma.conf.js --no-single-run"
+    "test:watch": "karma start karma.conf.js --no-single-run --debug"
   },
   "author": "lisandro pacheco",
   "license": "ISC",

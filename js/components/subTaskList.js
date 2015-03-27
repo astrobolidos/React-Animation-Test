@@ -1,4 +1,5 @@
 var React = require('react/addons');
+var ReactTransitionGroup 	= React.addons.CSSTransitionGroup;
 
 var SubTaskList = React.createClass({
 	getInitialState: function() {
@@ -41,7 +42,9 @@ var SubTaskList = React.createClass({
 		return (
 			<ol>
 				<input type="text" name="newSubTask" ref="subTask" placeholder="Enter a subtask!" onKeyPress={this.handleKeyPress} onClick={this.onClick} ></input>
-				{ this.state.subTasks.map(createSubTask)}
+				<ReactTransitionGroup transitionName="example">
+					{ this.state.subTasks.map(createSubTask)}
+				</ReactTransitionGroup>
 			</ol>
 			);
 		}
